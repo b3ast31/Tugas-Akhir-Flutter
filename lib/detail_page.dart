@@ -8,9 +8,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Ini judul'),
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           Container(
@@ -33,10 +31,16 @@ class DetailPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        movieData.judul,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            movieData.judul,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w800, fontSize: 30),
+                          ),
+                          SaveButton()
+                        ],
                       ),
                       SizedBox(
                         height: 12.0,
@@ -92,7 +96,7 @@ class DetailPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'Sinopsis',
+                    'Synopsis',
                     style: TextStyle(fontWeight: FontWeight.w700),
                   ),
                 ),
@@ -102,6 +106,34 @@ class DetailPage extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class SaveButton extends StatefulWidget {
+  const SaveButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<SaveButton> createState() => _SaveButtonState();
+}
+
+class _SaveButtonState extends State<SaveButton> {
+  bool isSaved = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        isSaved ? Icons.bookmark : Icons.bookmark_border_rounded,
+        color: Colors.green,
+      ),
+      onPressed: () {
+        setState(() {
+          isSaved = !isSaved;
+        });
+      },
     );
   }
 }

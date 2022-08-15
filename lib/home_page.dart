@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Image.network(
-                        listMarvelMovie[i].imageURL,
+                        moviedata.imageURL,
                         width: 70,
                       ),
                     ),
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            listMarvelMovie[i].judul,
+                            moviedata.judul,
                             style: GoogleFonts.openSans(
                                 fontWeight: FontWeight.w800),
                           ),
@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
                               SizedBox(
                                 width: 10.0,
                               ),
-                              Text(listMarvelMovie[i].durasi)
+                              Text(moviedata.durasi)
                             ],
                           ),
                           SizedBox(
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                               SizedBox(
                                 width: 10.0,
                               ),
-                              Text(listMarvelMovie[i].tahun)
+                              Text(moviedata.tahun)
                             ],
                           ),
                           SizedBox(
@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                               ),
                               Flexible(
                                   child: Text(
-                                listMarvelMovie[i].aktor,
+                                moviedata.aktor,
                                 maxLines: 2,
                                 overflow: TextOverflow.visible,
                               ))
